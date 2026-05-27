@@ -1,0 +1,127 @@
+button {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    padding: 6px 13px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 5px 150px 0px;
+    transition: all 0.4s ease;
+}
+button:hover {
+    transform: translateY(-2px) scale(1.01);
+    background-color: rgba(28, 39, 94, 0.878);
+    color: black;
+    font-size: 19px;
+}
+body.dark button{
+    background-color: #121212;
+    border: 1px solid white;
+    color: white;
+}
+body.dark button:hover {
+    background-color:#121212 ;
+    color: white;
+}
+body.dark #countryDetails h1{
+    color: aliceblue;
+}
+body.dark #countryDetails img{
+    border: 2px solid aliceblue;
+}
+body.dark #countryDetails p{
+    color: aliceblue;
+}
+#countryDetails {
+    width: 1200px;
+    margin: 0px 140px;
+    padding-right: 0px;
+    font-size: 50px;
+    /* text-align: center; */
+    font-family: Georgia, serif;
+    color: #1e293b;
+    position: relative;
+}
+
+#countryDetails h1 {
+    font-size: 44px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(28, 39, 94, 0.878);
+    margin-bottom: 1px;
+    margin-left: 30px;
+}
+#countryDetails img {
+    width: 420px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0px 4px 130px;
+    border: 2px solid rgba(28, 39, 94, 0.878);;
+}
+#countryDetails p {
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* color: rgba(28, /39, 94, 0.878); */
+    margin: 3px 0px 3px 150px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+strong {
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: normal;
+    text-transform: lowercase;
+    line-height: 1.6;
+    /* margin-right: 90px; */
+    width: 750px;
+    /* color: rgba(28, 39, 94, 0.878); */
+}
+#themeToggle {
+    position: absolute;
+    top: 10px;
+    right: 90px;
+    /* background-color: transparent; */
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #1e293b;
+    text-decoration: none;
+}
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+@media (max-width: 600px) {
+    button{
+        left: 3px;
+        margin-left: 7px;
+    }
+    #themeToggle {
+        font-size: 20px;
+        right: 20px;
+    }
+    #countryDetails {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #countryDetails h1 {
+        font-size: 35px;
+        margin-left: 20px;
+    }
+    #countryDetails img {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+    #countryDetails p {
+        font-size: 14px;
+        margin-left: 20px;
+        margin-bottom: 8px;
+        line-height: 1.6;
+    }
+    strong {
+        font-size: 14px;
+    }
+}
