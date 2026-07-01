@@ -2,12 +2,28 @@ const container = document.getElementById("container");
 let countriesData =[] //empty array
 
 // fetching API
-fetch("https://restcountries.com/v3.1/all?fields=name,capital,flags,region,population,currencies")
-.then(response => response.json()) //converting response to js file
-.then(data => {
+fetch("./data/countries.json")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        console.log(data[0]); // Show the first country
 
-    countriesData = data;
-    displayCountries(data);})
+        countriesData = data;
+        displayCountries(data);
+    });
+// .catch(err => console.log(err));
+
+// fetch("./data/countries.json")
+//     .then(response => response.json())
+//     .then(data => {
+//         countriesData = data;
+//         displayCountries(data);
+//     });
+// // .then(response => response.json()) //converting response to js file
+// // .then(data => {
+
+// //     countriesData = data.data.objects;
+// //     displayCountries(countriesData);})
 
     function displayCountries(data){
         container.innerHTML = "";
@@ -19,18 +35,19 @@ fetch("https://restcountries.com/v3.1/all?fields=name,capital,flags,region,popul
     card.classList.add("countryCard");
 
   // add href
-    card.href = `country.html?name=${encodeURIComponent(country.name.common)}`;
-    const currency = Object.values(country.currencies || {})[0];
+    card.href = `country.html?name=${encodeURIComponent(country.name)}`;
+    // const currency = Object.values(country.currencies || {})[0];
 
-    const capital = country.capital?.[0] ?? "N/A";
+    const capital = country.capital || "N/A";
+    const flagUrl = `https://flagcdn.com/w320/${country.iso2.toLowerCase()}.png`;
 
     card.innerHTML = `
-        <img src="${country.flags.svg}" alt="Flag of ${country.name.common}">
-        <p><strong>${country.name.common}</strong></p>
+        <img src="${flagUrl}" alt="Flag of ${country.name}">
+        <p><strong>${country.name}</strong></p>
         <p><strong>Capital:</strong> ${capital}</p>
         <p><strong>Region:</strong> ${country.region}</p>
-        <p><strong>Currency:</strong> ${currency?.name ?? ""} (${currency?.symbol ?? ""}) </p>
-        <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+        <p><strong>Currency:</strong> ${country.currency_name} (${country.currency_symbol})</p>
+        <p><strong>Population:</strong> ${country.population? country.population.toLocaleString(): "Unknown"}</p>
 
     `;
     container.appendChild(card);
@@ -47,7 +64,7 @@ document.getElementById("search").addEventListener("input", function (){
 
     const filtered = countriesData.filter(country => {
 
-        const name = country.name.common.toLowerCase();
+        const name = country.name.toLowerCase();
         // const capital = country.capital?.[0]?.toLowerCase() || "";
         const region = country.region.toLowerCase();
 
