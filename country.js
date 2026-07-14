@@ -1,3 +1,7 @@
+document.getElementById("backBtn").addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
 const params = new URLSearchParams(window.location.search);
 const countryName = params.get("name");
 

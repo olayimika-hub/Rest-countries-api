@@ -8,9 +8,19 @@ fetch("./data/countries.json")
         console.log(data);
         console.log(data[0]); // Show the first country
 
+        data.sort((a, b) => a.name.localeCompare(b.name));
+        
         countriesData = data;
         displayCountries(data);
     });
+
+const savedPosition = sessionStorage.getItem("scrollPosition");
+
+if (savedPosition !== null) {
+    setTimeout(() => {
+        window.scrollTo(0, Number(savedPosition));
+    }, 100);
+}
 // .catch(err => console.log(err));
 
 // fetch("./data/countries.json")
@@ -36,6 +46,9 @@ fetch("./data/countries.json")
 
   // add href
     card.href = `country.html?name=${encodeURIComponent(country.name)}`;
+    card.addEventListener("click", () => {
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+});
     // const currency = Object.values(country.currencies || {})[0];
 
     const capital = country.capital || "N/A";
