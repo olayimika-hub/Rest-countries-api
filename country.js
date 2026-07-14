@@ -30,9 +30,7 @@ function displayCountry(country) {
         ? country.population.toLocaleString()
         : "Unknown";
 
-    const area = country.area
-        ? country.area.toLocaleString()
-        : "N/A";
+    const area = country.area_sq_km ? country.area_sq_km.toLocaleString() : "N/A";
 
     container.innerHTML = `
         <h1>${country.name}</h1>
@@ -42,12 +40,12 @@ function displayCountry(country) {
         <p><strong>Region:</strong> ${country.region}</p>
         <p><strong>Area:</strong> ${area} km²</p>
         <p><strong>Currency:</strong> ${country.currency_name} (${country.currency_symbol})</p>
-        <p><strong>Phone Code:</strong> +${country.phone_code}</p>
+        <p><strong>Phone Code:</strong> +${country.phonecode}</p>
         <p><strong>Native Name:</strong> ${country.native}</p>
         <p><strong>Latitude:</strong> ${country.latitude}</p>
         <p><strong>Longitude:</strong> ${country.longitude}</p>
-        <p><strong>Time Zone:</strong> ${country.timezones ?? "N/A"}</p>
-        <p><strong>Start of Week:</strong> ${country.start_of_week ?? "N/A"}</p>
+        <p><strong>Time Zone:</strong> (${country.timezones?.[0]?.gmtOffsetName ?? ""})</p>        
+        <p><strong>Nationality:</strong> ${country.nationality ?? "N/A"}</p>
         <p><strong>Landlocked:</strong> ${country.landlocked ? "Yes" : "No"}</p>
     `;
 }

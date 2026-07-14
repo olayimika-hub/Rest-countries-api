@@ -128,13 +128,22 @@ body.dark .countryCard p{
         text-decoration: none;
         /* color: rgb(39, 39, 128); */
     }
+    #map{
+        width: 100%;
+        /* height: 500px; */
+        margin-top: 20px;
+        align-self: center;
+        align-items: center;
+        /* margin-left: 150px; */
+        border-radius: 10px;
+    }
     .up{
         position: fixed;
         bottom: 20px;
         right: 20px;
         background-color: rgb(39, 39, 128);
         color: white;
-        border: none;
+        border: 1px solid wheat;
         border-radius: 10px;
         width: 120px;
         height: 40px;
@@ -146,13 +155,14 @@ body.dark .countryCard p{
     }
 
     .footer {
-    background: #111827;
+    background: rgb(39, 39, 128);
     color: white;
     text-align: center;
     padding: 30px 20px;
     margin-top: 20px;
     font-size: 18px;
     cursor:default;
+    border-radius: 20px;
     font-family:'Courier New', Courier, monospace
 }
 .footer-content {
@@ -240,6 +250,15 @@ body.dark .countryCard p{
             font-size: 10px;
             margin-top: 0px;
             /* height: 160px; */
+        }
+        .footer{
+            font-size: 14px;
+            padding: 5% 10px;
+            /* gap: 1px; */
+        }
+        .footer-content{
+            margin-left: 0px;
+            flex-direction: column;
         }
     }
 
